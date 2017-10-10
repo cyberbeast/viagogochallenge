@@ -27,7 +27,7 @@ python3 tests.py
 
 ## Other Questions
 
-> How might you change your program if you needed to support multiple events at the same location?
+### How might you change your program if you needed to support multiple events at the same location?
 * This program can utilize a list data structure as a data variable inside the `Location` class.  The essence of this modification would be to hold pointers to the `Event` object that are mapped to this location.
 ```python
 class Location:
@@ -38,11 +38,15 @@ class Location:
         ...
 ```
 
-> How would you change your program if you were working with a much larger world size?
+### How would you change your program if you were working with a much larger world size?
 * For working with a much larger world size and assuming that finding _n_ nearest events is the only query my system needs to respond to, I would try to utilize an optimized strategy for representing the world. For example, an **R-Tree** is a data structure that can be used to effectively store the multi-dimensional information that is used to represent the geographic co-ordinates.
+	* A very high level algorithm for incorporating these changes into my implementation would be:
+		1. Populate the world by consuming all the random events into an R-Tree. The leaves of this R-Tree would be actual `Event` class objects as defined in the current implementation.
+		2. When querying for the nearest *n* neighboring events, traverse the R-Tree from the root node, while inserting nodes (representing sub-regions) which overlap the queried location into a queue. Each node in the queue that is a sub-tree is recursively expanded recursively in the same manner. The processing stops when either the required number of neighbors have been found or all the nodes (sub-regions) have been visited. 
+	 
 * The primary motivation for moving towards a tree-like structure in this regards arises due to the fact that when looking for the _n_ nearest events, the search space for finding these _n_ events need not span the entire input space. In other words, when looking for the top _n_ closest events in New York, the resultant geographical space where these events might exist, would highly unlikely be in Tokyo (unless our world contains very few locations and/or events).
 * Representing the world using an R-Tree would optimize searching by reducing the search space of valid possible regions where a "nearest" event might be at every stage of traversing down the R-Tree. 
 * Another benefit of accessing information in this manner is the improvement in time-complexity. Search/Access time-complexity would be `O(log n)`.
-* The image below (accessed from https://upload.wikimedia.org/wikipedia/commons/4/46/R*-tree_built_using_topological_split.png) shows an R-Tree representation of US Postal Districts.
+* The image below (accessed from https://upload.wikimedia.org/wikipedia/commons/4/46/R*-tree_built_using_topological_split.png) shows an R-Tree representation of US Postal Districts. 
 ![R-Tree ](https://upload.wikimedia.org/wikipedia/commons/4/46/R*-tree_built_using_topological_split.png)
 
