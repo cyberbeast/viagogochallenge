@@ -43,17 +43,24 @@ class TestSuite(unittest.TestCase):
         Input:              Single integer valued tuple to Location()
         Expected Output:    raise TypeError
         """
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             Location((1))
     
     def testLocation_3(self):
         """
         Input:              >3 integer valued tuples to Location()
-        Expected Output:    raise TypeError
+        Expected Output:    raise ValueError
         """
         with self.assertRaises(ValueError):
             Location((1,2,3))
-
+    
+    def testManhattanDistance_1(self):
+        """
+        Expected Behavior:  Correctly calculate Manhattan Distance from test_event object to valid points.
+        """
+        test_event = Event('TestEvent1', (1,1))
+        self.assertEqual(test_event.getDistanceTo((3,3)), 4)
+        self.assertEqual(test_event.getDistanceTo((-2,5)), 7)        
 
 if __name__ == '__main__':
     unittest.main()  
