@@ -9,7 +9,10 @@ class Location:
     """
     def __init__(self, location):
         """Catch ValueError exception if incorrect number of values are passed as part of the location tuple."""
-        if type(location) == 'tuple' and len(location) == 2:
+        if isinstance(location, tuple) is not True:
+            raise TypeError
+
+        if (isinstance(location, tuple) is True) and (len(location) == 2):
             self.x, self.y = location
         else:
             raise ValueError
