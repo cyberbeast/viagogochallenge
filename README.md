@@ -12,6 +12,18 @@ To run the program, type the following command in a terminal:
 python3 main.py
 ``` 
 
+#### Expected Output
+```
+Please Input Coordinates:
+> 4,2
+Closest Events to (4,2):
+Event 2 - $4.61, Distance 2
+Event 29 - $15.47, Distance 2
+Event 80 - $19.53, Distance 2
+Event 15 - $12.45, Distance 3
+Event 23 - $1.02, Distance 3
+```
+
 ## Running Unit Tests
 This implementation uses python's **`unittest`** framework for testing. Unit tests have been defined in `tests.py`.  This step **is not required** for running the program.
 
@@ -19,6 +31,15 @@ The unit tests can be called by typing the following command in a terminal:
 
 ```
 python3 tests.py
+```
+
+#### Expected Output
+```
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK
 ```
 ## Assumptions
 * The maximum number of tickets that can be assigned to a **randomly generated event** has an upper limit on `MAX_NUMBER_OF_TICKETS` which is set to a default value of `100`. When randomly populating the grid with events, the number of tickets that are assigned to an event is determined by a random number '_n_' such that `0 <= n <= MAX_NUMBER_OF_TICKETS`.
