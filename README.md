@@ -42,6 +42,10 @@ Ran 7 tests in 0.001s
 OK
 ```
 ## Assumptions
+
+ - My implementation is based on the following class relationship diagram.
+
+![UML Class Diagram for Viagogo Coding Challenge](https://www.lucidchart.com/publicSegments/view/ae1f8bd0-cb04-4950-8bab-fd2082a3c2cc/image.png)
 * The maximum number of tickets that can be assigned to a **randomly generated event** has an upper limit on `MAX_NUMBER_OF_TICKETS` which is set to a default value of `100`. When randomly populating the grid with events, the number of tickets that are assigned to an event is determined by a random number '_n_' such that `0 <= n <= MAX_NUMBER_OF_TICKETS`.
 * Similarly, the maximum price of a **randomly generated ticket** is capped by `MAX_TICKET_PRICE` which is set to a default value of `500`. When randomly generating tickets, the price of each ticket is determined by a random number '_p_' such that `0 < p <= MAX_TICKET_PRICE`.
 * The seed value for all the random value generator functions used throughout the program are controlled by `SEED_VALUE`. This variable is set to a default value of `3`. This is done to ensure reproducibility of the random population of the grid with events, tickets and locations.
