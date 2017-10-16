@@ -73,6 +73,6 @@ class Location:
 * Representing the world using an R-Tree would optimize searching by reducing the search space of valid possible regions where a "nearest" event might be at every stage of traversing down the R-Tree. 
 * Another benefit of accessing information in this manner is the improvement in time-complexity. Search/Access time-complexity would be `O(log n)`.
 * A **min-heap** could also be used to optimize the storage of the tickets for a particular event.
-* The image below (accessed from https://upload.wikimedia.org/wikipedia/commons/4/46/R*-tree_built_using_topological_split.png) shows an R-Tree representation of US Postal Districts. 
-![R-Tree ](https://upload.wikimedia.org/wikipedia/commons/4/46/R*-tree_built_using_topological_split.png)
+* The image below (accessed from https://upload.wikimedia.org/wikipedia/commons/4/46/R%2A-tree_built_using_topological_split.png) shows an R-Tree representation of US Postal Districts. 
+![R-Tree ](https://upload.wikimedia.org/wikipedia/commons/4/46/R%2A-tree_built_using_topological_split.png)
 
